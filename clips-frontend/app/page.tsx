@@ -1,4 +1,3 @@
-
 import ProgressCard from "@/components/ProgressCard";
 import Image from "next/image";
 
@@ -58,91 +57,66 @@ export default function Home() {
 
 import Sidebar from "../components/navigation/Sidebar";
 import AiInsightCard from "./components/AiInsightCard";
-
 import MetricsCards from "./MetricsCards";
 import ProcessDashboard from "./components/ProcessDashboard";
 import ConnectAccountsSection from "./components/ConnectAccountsSection";
 
 export default function Home() {
   return (
-
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      {/* Responsive container with proper breakpoints */}
-      <main className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-        
-        {/* Hero Section with responsive layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-12">
-          
-          {/* Hero Content - Left side on desktop, stacks on top for mobile/tablet */}
-          <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-black dark:text-zinc-50">
-              Transform Your Content with AI-Powered Clips
-            </h1>
-            <p className="text-base sm:text-lg leading-relaxed text-zinc-600 dark:text-zinc-400">
-              Create viral-ready clips from your long-form content in seconds. 
-              Our AI analyzes, edits, and optimizes your videos for maximum engagement.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                className="flex h-12 items-center justify-center gap-2 rounded-full bg-foreground px-6 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc]"
-                href="/create"
-              >
-                Get Started
-              </a>
-              <a
-                className="flex h-12 items-center justify-center rounded-full border border-solid border-black/[.08] px-6 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-                href="/learn-more"
-              >
-                Learn More
-              </a>
-            </div>
-          </div>
-
-          {/* Auth Card / Process Dashboard - Right side on desktop, stacks below on mobile/tablet */}
-          <div className="flex items-center justify-center">
-            <div className="w-full max-w-lg">
-              <ProcessDashboard />
-            </div>
-          </div>
-        </div>
-
-        {/* Progress Card Section */}
-        <div className="mb-12">
-          <ProgressCard
-            percentage={87}
-            estimatedTimeRemaining="1 minute 15 seconds"
-          />
-        </div>
-
-        {/* Connect Accounts Section */}
-        <div className="mb-12">
-          <ConnectAccountsSection />
-        </div>
-
-        {/* Metrics Cards at the bottom */}
-        <MetricsCards />
-      </main>
-
     <div className="min-h-screen bg-[#0A0A0A] text-white flex">
-      {/* Sidebar on the left */}
-      <Sidebar />
+      {/* Main content */}
+      <main className="flex-1 pl-64 p-8 lg:p-12">
+        <div className="w-full max-w-7xl mx-auto space-y-12">
+          {/* Hero + Process */}
+          <section className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+            <div className="flex flex-col justify-center gap-6 text-center lg:text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold leading-tight tracking-tight text-white">
+                Transform Your Content with AI-Powered Clips
+              </h1>
+              <p className="text-base sm:text-lg leading-relaxed text-zinc-400">
+                Create viral-ready clips from your long-form content in seconds.
+                Our AI analyzes, edits, and optimizes your videos for maximum engagement.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <a
+                  className="flex h-12 items-center justify-center gap-2 rounded-full bg-white text-black px-6 transition-colors hover:bg-zinc-200"
+                  href="/create"
+                >
+                  Get Started
+                </a>
+                <a
+                  className="flex h-12 items-center justify-center rounded-full border border-white/20 px-6 transition-colors hover:bg-white/10"
+                  href="/learn-more"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
 
-      {/* Main content area */}
-      <main className="flex-1 pl-64 flex flex-col items-center justify-center p-8 gap-12">
-        
-        <div className="text-center space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight text-white">
-            Dashboard Overview
-          </h1>
-          <p className="text-zinc-400 max-w-md mx-auto">
-            View your latest video performance and AI-generated insights here.
-          </p>
-        </div>
+            <div className="flex items-center justify-center">
+              <div className="w-full max-w-lg">
+                <ProcessDashboard />
+              </div>
+            </div>
+          </section>
 
-        {/* Your AI Insight Card! */}
-        <div className="w-full flex justify-center">
-          <AiInsightCard />
-        </div>
+          {/* AI Insight */}
+          <section className="w-full flex justify-center">
+            <AiInsightCard />
+          </section>
+
+          {/* Progress */}
+          <section>
+            <ProgressCard
+              percentage={87}
+              estimatedTimeRemaining="1 minute 15 seconds"
+            />
+          </section>
+
+          {/* Connect Accounts */}
+          <section>
+            <ConnectAccountsSection />
+          </section>
 
         <OnboardingStep1 onContinue={(values) => {
   // values.fullName, values.niche
@@ -152,11 +126,12 @@ export default function Home() {
         {/* Other metrics below */}
         <div className="w-full max-w-5xl">
           <MetricsCards />
+          {/* Metrics */}
+          <section>
+            <MetricsCards />
+          </section>
         </div>
-
       </main>
-
-
     </div>
   );
 }
