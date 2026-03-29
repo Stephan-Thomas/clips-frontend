@@ -6,6 +6,8 @@ import { useClipSelectionStore } from "@/app/store/clipSelectionStore";
 
 const DUMMY_USER = {
   name: "Alex",
+  email: "alex@clipcash.ai",
+  avatar: "/avatar.png",
 };
 
 export default function DashboardHeader() {
